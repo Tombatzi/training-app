@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mobiletrainingapp.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/programFragment"
+        android:name="com.example.mobiletrainingapp.ProgramFragment"
+        android:label="fragment_program"
+        tools:layout="@layout/fragment_program" />
+    <fragment
+        android:id="@+id/addWorkout"
+        android:name="com.example.mobiletrainingapp.AddWorkout"
+        android:label="AddWorkout" />
+    <fragment
+        android:id="@+id/userDataFragment"
+        android:name="com.example.mobiletrainingapp.UserDataFragment"
+        android:label="fragment_user_data"
+        tools:layout="@layout/fragment_user_data" />
+</navigation>

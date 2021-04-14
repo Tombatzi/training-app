@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/Home"
+        />
+    <item
+        android:id="@+id/programFragment"
+        android:title="My Workouts"
+        />
+    <item
+        android:id="@+id/addWorkout"
+        android:title="Add Workout"
+        />
+    <item
+        android:id="@+id/userDataFragment"
+        android:title="User Data"
+        />
+</menu>
