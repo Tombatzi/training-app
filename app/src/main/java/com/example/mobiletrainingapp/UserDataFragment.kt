@@ -6,11 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_user_data.*
+import kotlin.String as Ed
 
 
 class UserDataFragment : Fragment() {
@@ -26,7 +29,10 @@ class UserDataFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
+
         getDocument()
+
+
     }
 
     override fun onCreateView(
@@ -35,6 +41,23 @@ class UserDataFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user_data, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val db = Firebase.firestore
+        btnPostUserData.setOnClickListener() {
+
+            val userValues = hashMapOf(
+                "name" to editTextPersonName.text.toString(),
+                "age" to editTextPersonAge.text.toString(),
+            )
+
+            db.collection("user").document(auth.currentUser.uid.toString())
+                .set(userValues)
+                .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+                .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+        }
     }
 
     private fun getDocument() {
@@ -59,7 +82,7 @@ class UserDataFragment : Fragment() {
                 Log.d(TAG, "get failed with ", exception)
             }
         // [END get_document]
-
     }
+
 
 }
