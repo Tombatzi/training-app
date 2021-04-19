@@ -18,4 +18,18 @@
     <string name="name">Name</string>
     <string name="age">Age</string>
     <string name="photo">Photo</string>
+    <string name="Button">Button</string>
+    <string name="My_Workouts">My Workouts</string>
+    <string name="Add_Workout">Add Workout</string>
+
+    <string name="resistace">Resistance</string>
+    <string name="bodyweight">Bodyweight</string>
+    <string name="rubberband">Rubber band</string>
+    <string name="dumbbell">Dumbbell</string>
+    <string name="freeweight">Freeweight</string>
+    <string name="other">Other</string>
+    <string name="add_insturctions">Add instructions</string>
+    <string name="Add_practise_name">Add practise name</string>
+    <string name="submit">Submit</string>
+    <string name="image_Content">Image content</string>
 </resources>

@@ -9,19 +9,26 @@
         android:id="@+id/homeFragment"
         android:name="com.example.mobiletrainingapp.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_programFragment"
+            app:destination="@id/programFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addWorkoutFragment"
+            app:destination="@id/addWorkoutFragment" />
+    </fragment>
     <fragment
         android:id="@+id/programFragment"
         android:name="com.example.mobiletrainingapp.ProgramFragment"
         android:label="fragment_program"
         tools:layout="@layout/fragment_program" />
     <fragment
-        android:id="@+id/addWorkout"
-        android:name="com.example.mobiletrainingapp.AddWorkout"
-        android:label="AddWorkout" />
-    <fragment
         android:id="@+id/userDataFragment"
         android:name="com.example.mobiletrainingapp.UserDataFragment"
         android:label="fragment_user_data"
         tools:layout="@layout/fragment_user_data" />
+    <fragment
+        android:id="@+id/addWorkoutFragment"
+        android:name="com.example.mobiletrainingapp.AddWorkout"
+        android:label="fragment_add_workout" />
 </navigation>
