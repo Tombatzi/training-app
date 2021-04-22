@@ -69,31 +69,36 @@
                     android:id="@+id/bodyweightRB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/bodyweight" />
+                    android:text="@string/bodyweight"
+                    />
 
                 <RadioButton
                     android:id="@+id/rubberRB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/rubberband" />
+                    android:text="@string/rubberband"
+                    />
 
                 <RadioButton
                     android:id="@+id/dumbbellRB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/dumbbell" />
+                    android:text="@string/dumbbell"
+                   />
 
                 <RadioButton
                     android:id="@+id/freeweightRB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/freeweight" />
+                    android:text="@string/freeweight"
+                    />
 
                 <RadioButton
                     android:id="@+id/otherRB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/other" />
+                    android:text="@string/other"
+                    />
 
             </RadioGroup>
 

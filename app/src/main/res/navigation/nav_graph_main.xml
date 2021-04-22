@@ -23,5 +23,11 @@
     <fragment
         android:id="@+id/addWorkout"
         android:name="com.example.mobiletrainingapp.AddWorkout"
-        android:label="fragment_add_workout" />
+        android:label="fragment_add_workout"
+        tools:layout="@layout/fragment_add_workout"/>
+    <activity
+        android:id="@+id/myWorkout"
+        android:name="com.example.mobiletrainingapp.MyWorkout"
+        android:label="MyWorkout" />
+
 </navigation>

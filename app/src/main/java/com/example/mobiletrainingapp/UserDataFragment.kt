@@ -19,8 +19,7 @@ import kotlin.String as Ed
 class UserDataFragment : Fragment() {
 
     companion object {
-        private const val TAG = "LoginActivity"
-        private const val RC_GOOGLE_SIGN_IN = 1001
+        private const val TAG = "UserDataFragment"
     }
 
 
@@ -31,7 +30,6 @@ class UserDataFragment : Fragment() {
         auth = Firebase.auth
 
         getDocument()
-
 
     }
 

@@ -6,7 +6,7 @@
         android:title="@string/Home"
         />
     <item
-        android:id="@+id/programFragment"
+        android:id="@+id/myWorkout"
         android:title="My Workouts"
         />
     <item

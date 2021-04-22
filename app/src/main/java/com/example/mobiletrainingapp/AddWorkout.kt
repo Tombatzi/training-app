@@ -6,25 +6,40 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.core.content.FileProvider
+import androidx.core.view.get
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_add_workout.*
+import kotlinx.android.synthetic.main.fragment_user_data.*
 import java.io.File
 
 private const val FILE_NAME = "photo.jpg"
 private const val REQUEST_CODE = 42
 private lateinit var photoFile: File
 private lateinit var auth: FirebaseAuth
+
+
 class AddWorkout : Fragment() {
+
+    companion object {
+        private const val TAG = "AddworkoutFragment"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth = Firebase.auth
     }
 
 
@@ -41,7 +56,41 @@ class AddWorkout : Fragment() {
         cameraBtn.setOnClickListener{
             dispatchTakePictureIntent()
         }
+        submitBtn.setOnClickListener {
+            postData()
+        }
     }
+    private fun postData(){
+        val db = Firebase.firestore
+        var resistance = ""
+
+        if(bodyweightRB.isChecked){
+            resistance = bodyweightRB.text.toString()
+        }else if(rubberRB.isChecked){
+            resistance = rubberRB.text.toString()
+        }
+        else if(dumbbellRB.isChecked){
+            resistance = dumbbellRB.text.toString()
+        }
+        else if(freeweightRB.isChecked){
+            resistance = freeweightRB.text.toString()
+        }
+        else if(otherRB.isChecked){
+            resistance = otherRB.text.toString()
+        }
+
+
+        val workoutValues = hashMapOf(
+            "name" to addNameText.text.toString(),
+            "instruction" to addInsturctionsText.text.toString(),
+            "resistance" to resistance
+        )
+        db.collection("user").document(auth.currentUser.uid).collection("program").document(addNameText.text.toString())
+            .set(workoutValues)
+            .addOnSuccessListener { Log.d(AddWorkout.TAG, "DocumentSnapshot successfully written!") }
+            .addOnFailureListener { e -> Log.w(AddWorkout.TAG, "Error writing document", e) }
+    }
+
     private fun dispatchTakePictureIntent() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         photoFile = getPhotoFile(FILE_NAME)
@@ -62,7 +111,6 @@ class AddWorkout : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-//            val takenImage = data?.extras?.get("data") as Bitmap
             val takenImage = BitmapFactory.decodeFile(photoFile.absolutePath)
             iVMovePhoto.setImageBitmap(takenImage)
         } else {

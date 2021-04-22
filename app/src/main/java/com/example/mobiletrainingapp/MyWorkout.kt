@@ -1,11 +1,7 @@
 package com.example.mobiletrainingapp
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -16,21 +12,17 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_program.*
 
-private lateinit var auth: FirebaseAuth
-
-class ProgramFragment : AppCompatActivity() {
-
-
+class MyWorkout : AppCompatActivity() {
 
     var workoutAdapter: WorkoutAdapter? = null
 
 
-
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
 
-        setContentView(R.layout.fragment_program)
+        setContentView(R.layout.activity_my_workout)
 
         setupRecyclerview()
     }

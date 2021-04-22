@@ -32,4 +32,7 @@
     <string name="Add_practise_name">Add practise name</string>
     <string name="submit">Submit</string>
     <string name="image_Content">Image content</string>
+    <string name="workout">Workout</string>
+    <string name="resistance">Resistance</string>
+    <string name="instructions">Instructions</string>
 </resources>
