@@ -9,7 +9,14 @@
         android:id="@+id/homeFragment"
         android:name="com.example.mobiletrainingapp.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_addWorkout"
+            app:destination="@id/addWorkout" />
+        <action
+            android:id="@+id/action_homeFragment_to_myWorkout"
+            app:destination="@id/myWorkout" />
+    </fragment>
     <fragment
         android:id="@+id/programFragment"
         android:name="com.example.mobiletrainingapp.ProgramFragment"
